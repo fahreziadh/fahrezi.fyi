@@ -20,6 +20,11 @@ const projects = [
     website: "https://tiketapasaja.com",
     description: "Ticket Box Cooperation - Management Ticketing",
   },
+  {
+    name: "Konten.io",
+    website: "https://konten.io",
+    description: "Digital content buying and selling platform",
+  }
 ];
 
 const workExperience = [
