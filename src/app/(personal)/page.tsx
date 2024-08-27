@@ -93,7 +93,7 @@ export default function Home() {
                 {experience.endDate && `- ${experience.endDate}`}
               </span>
             </h1>
-            <h2>{experience.position}</h2>
+            <h2 className="opacity-70">{experience.position}</h2>
           </div>
         ))}
       </div>
