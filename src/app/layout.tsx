@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { Inter as FontSans } from "next/font/google"
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
+import { GeistSans } from 'geist/font/sans';
 
 export const metadata: Metadata = {
   title: "Fahrezi Adha",
@@ -20,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`text-zinc-950 font-sans antialiased ${fontSans.variable}`}>{children}</body>
+      <body className={`dark bg-background text-foreground font-sans antialiased ${GeistSans.variable}`}>{children}</body>
     </html>
   );
 }

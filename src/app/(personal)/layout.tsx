@@ -4,7 +4,7 @@ import React from "react";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <nav className="container max-w-[680px] mt-14 flex flex-row items-center gap-4 justify-between">
+      <nav className="container max-w-[680px] mt-6 lg:mt-10 flex flex-row items-center gap-4 justify-between">
         <div className="flex flex-row items-center gap-4">
           <a href="/" className="hover:opacity-70">
             home
@@ -39,6 +39,7 @@ const XIcon = () => {
   return (
     <Image
       src="/x-icon.webp"
+      className="dark:invert"
       alt="x"
       width={16}
       height={16}
@@ -49,7 +50,7 @@ const XIcon = () => {
 const GithubIcon = () => {
   return (
     <Image
-      className="w-[18px] h-[18px]"
+      className="w-[18px] h-[18px] dark:invert"
       src="/github-mark.png"
       alt="github"
       width={18}
