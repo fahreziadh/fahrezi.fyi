@@ -13,14 +13,34 @@ const projects = [
   },
   {
     name: "TiketApaSaja",
-    url:"https://tiketapasaja.com",
+    url: "https://tiketapasaja.com",
     description: "Ticket Box Cooperation - Management Ticketing",
-  }
+  },
+];
+
+const workExperience = [
+  {
+    company: "Nuon",
+    position: "Frontend Engineer",
+    startDate: "2023",
+    endDate: "Present",
+  },
+  {
+    company: "Creative Station",
+    position: "Frontend Engineer",
+    startDate: "2023",
+  },
+  {
+    company: "Gameqoo",
+    position: "Android Engineer",
+    startDate: "2019",
+    endDate: "2023",
+  },
 ];
 
 export default function Home() {
   return (
-    <main className="container max-w-[680px] pt-14  leading-relaxed antialiased">
+    <main className="container max-w-[680px] leading-relaxed antialiased pb-20">
       <Link href="/" className="font-medium">
         Fahrezi Adha
       </Link>
@@ -45,11 +65,30 @@ export default function Home() {
             key={project.name}
             href={project.url}
             target="_blank"
-            className="-mx-4 px-4 py-4 hover:bg-zinc-900/5 rounded-md transition-all ease-in-out"
+            className="-mx-4 px-4 py-4 hover:bg-zinc-500/5 rounded-md"
           >
-            <h1 className="font-medium">{project.name}</h1>
+            <h1>{project.name}</h1>
             <h2 className="opacity-70">{project.description}</h2>
           </Link>
+        ))}
+      </div>
+
+      <p className="font-medium mt-20">Work Experience</p>
+      <div className="mt-4 flex flex-col">
+        {workExperience.map((experience) => (
+          <div
+            key={experience.company}
+            className="py-4 "
+          >
+            <h1 className="flex flex-row justify-between">
+              <span>{experience.company}</span>
+              <span className="opacity-50">
+                {`${experience.startDate}`}{" "}
+                {experience.endDate && `- ${experience.endDate}`}
+              </span>
+            </h1>
+            <h2>{experience.position}</h2>
+          </div>
         ))}
       </div>
     </main>
