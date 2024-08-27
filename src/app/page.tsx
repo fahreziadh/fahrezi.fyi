@@ -45,7 +45,7 @@ export default function Home() {
             key={project.name}
             href={project.url}
             target="_blank"
-            className="-mx-4 px-4 py-4 hover:bg-zinc-950/5 rounded-md transition-all ease-in-out"
+            className="-mx-4 px-4 py-4 hover:bg-zinc-900/5 rounded-md transition-all ease-in-out"
           >
             <h1 className="font-medium">{project.name}</h1>
             <h2 className="opacity-70">{project.description}</h2>
