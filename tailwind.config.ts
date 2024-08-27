@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const { fontFamily } = require("tailwindcss/defaultTheme")
 
 const config: Config = {
   content: [
@@ -12,8 +13,7 @@ const config: Config = {
         center: true,
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
+        sans: ["var(--font-sans)", ...fontFamily.sans],
       },
     },
   },

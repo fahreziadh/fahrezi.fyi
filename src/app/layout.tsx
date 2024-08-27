@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
+import { Inter as FontSans } from "next/font/google"
 
+const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="dark bg-[#111110] text-white">{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`text-zinc-950 font-sans antialiased ${fontSans.variable}`}>{children}</body>
     </html>
   );
 }

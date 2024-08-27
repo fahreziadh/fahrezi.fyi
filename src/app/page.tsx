@@ -4,13 +4,18 @@ const projects = [
   {
     name: "Evaly",
     description: "An Exam, Assessment, and Evaluation Platform",
-    url: "/projects/evaly",
+    url: "https://evaly.io",
   },
   {
     name: "Typehere",
     description: "A Simple Open Source Form Builder",
-    url: "/projects/typehere",
+    url: "https://typehere.fun",
   },
+  {
+    name: "TiketApaSaja",
+    url:"https://tiketapasaja.com",
+    description: "Ticket Box Cooperation - Management Ticketing",
+  }
 ];
 
 export default function Home() {
@@ -20,22 +25,29 @@ export default function Home() {
         Fahrezi Adha
       </Link>
       <p className="opacity-70 font-medium">Frontend Engineer</p>
-      <h1 className="mt-16 font-medium">Hello 👋</h1>
       <p className="mt-6 opacity-70">
         {"i'm"} Frontend Engineer that passionate about creating captivating web
-        experiences. Currently at Nuon, building evaly.io and share every
-        journey here.
+        experiences. Currently at{" "}
+        <Link href="https://nuon.id/" className="underline" target="_blank">
+          Nuon
+        </Link>
+        , building{" "}
+        <Link target="_blank" className="underline" href="https://evaly.io">
+          evaly.io
+        </Link>{" "}
+        and share every journey here.
       </p>
 
       <p className="font-medium mt-20">Projects</p>
-      <div className="mt-4 flex flex-col gap-2">
+      <div className="mt-4 flex flex-col">
         {projects.map((project) => (
           <Link
             key={project.name}
             href={project.url}
-            className="-mx-3 px-3 py-2 hover:bg-white/5 rounded-md"
+            target="_blank"
+            className="-mx-4 px-4 py-4 hover:bg-zinc-950/5 rounded-md transition-all ease-in-out"
           >
-            <h1>{project.name}</h1>
+            <h1 className="font-medium">{project.name}</h1>
             <h2 className="opacity-70">{project.description}</h2>
           </Link>
         ))}
