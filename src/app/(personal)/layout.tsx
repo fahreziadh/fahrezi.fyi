@@ -30,7 +30,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </a>
         </div>
       </nav>
-      <main className="pt-16">{children}</main>
+      <main className="py-16">{children}</main>
     </>
   );
 };
