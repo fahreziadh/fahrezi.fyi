@@ -2,9 +2,17 @@ import { allPosts } from "content-collections";
 import { ImageResponse } from "next/og";
 // App router includes @vercel/og.
 // No need to install it.
+export async function generateStaticParams() {
+  const posts = allPosts.map((p) => ({
+    slug: p.slug,
+  }));
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
-export async function GET(req: Request) {
-  const slug = new URL(req.url).searchParams.get("slug");
+export async function GET(req:Request, {params}:{params:{slug:string}}) {
+  const slug = params.slug
   const getTitle = allPosts.find((p) => p.slug === slug)?.title;
 
   if (!slug || !getTitle) return new Response("Not found", { status: 404 });

@@ -33,7 +33,7 @@ export async function generateMetadata(
       siteName: "Fahrezi Adha",
       images: [
         {
-          url: "https://fahrezi.fyi/og?slug=" + post.slug,
+          url: `https://fahrezi.fyi/blog/${post.slug}/og`,
         },
       ],
     },
@@ -44,7 +44,7 @@ export async function generateMetadata(
       description: "",
       images: [
         {
-          url: "https://fahrezi.fyi/og?slug=" + post.slug,
+          url: `https://fahrezi.fyi/blog/${post.slug}/og`,
         },
       ],
       creator: "@fahreziadhaa",
