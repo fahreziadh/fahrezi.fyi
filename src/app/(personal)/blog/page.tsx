@@ -1,6 +1,5 @@
 import React from "react";
 import { allPosts } from "content-collections";
-import { MDXContent } from "@content-collections/mdx/react";
 import Link from "next/link";
 import { format, formatDistance } from "date-fns";
 

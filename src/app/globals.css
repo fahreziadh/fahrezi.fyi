@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --background: 60 3% 6%;
-		--foreground: 240 5% 96%;
+    --background: 240 5.9% 10%;
+		--foreground: 0 0% 98%;
   }
 
   body {
