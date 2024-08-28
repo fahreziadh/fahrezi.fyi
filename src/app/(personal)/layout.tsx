@@ -24,7 +24,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <div className="flex flex-row items-center gap-4 md:gap-6">
           <a
             target="_blank"
-            href="https://twitter.com/fahrezadha"
+            href="https://twitter.com/fahreziadhaa"
             className="transition-all hover:opacity-70"
           >
             <XIcon />
