@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { allPosts } from "content-collections";
 import { MDXContent } from "@content-collections/mdx/react";
@@ -8,11 +9,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getAndIncrementView } from "@/lib/actions";
 
 export const dynamic = "force-static";
-
-export const generateStaticParams = async () => {
-  const posts = allPosts.filter((p) => p.slug.includes("-en"));
-  return allPosts.map((p) => ({ slug: p.slug }));
-};
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((p) => p.slug === params.slug);
@@ -42,19 +38,19 @@ const Page = ({ params }: { params: { slug: string } }) => {
 };
 
 const Views = ({ slug }: { slug: string }) => {
-  return null
-  // const { data, isLoading } = useQuery({
-  //   queryKey: ["views", slug],
-  //   queryFn: async () => await getAndIncrementView(slug),
-  // });
+  const { data, isLoading } = useQuery({
+    queryKey: ["views", slug],
+    queryFn: async () => await getAndIncrementView(slug),
+    refetchOnWindowFocus: false,
+  });
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="w-[60px] h-[14px] bg-foreground/5 rounded-full animate-pulse" />
-  //   );
-  // }
+  if (isLoading) {
+    return (
+      <div className="w-[60px] h-[14px] bg-foreground/5 rounded-full animate-pulse" />
+    );
+  }
 
-  // return <span className="opacity-50 text-sm">{data || 1} views</span>;
+  return <span className="opacity-50 text-sm">{data || 1} views</span>;
 };
 
 export default Page;

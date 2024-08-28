@@ -14,7 +14,6 @@
     "date-fns": "^3.6.0",
     "drizzle-orm": "^0.33.0",
     "geist": "^1.3.1",
-    "little-date": "^1.0.0",
     "next": "14.2.7",
     "react": "^18",
     "react-dom": "^18"

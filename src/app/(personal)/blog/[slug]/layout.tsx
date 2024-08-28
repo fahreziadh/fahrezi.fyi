@@ -1,6 +1,6 @@
-import { allPosts } from 'content-collections';
-import { ResolvingMetadata } from 'next';
-import React from 'react'
+import { allPosts } from "content-collections";
+import { ResolvingMetadata } from "next";
+import React from "react";
 
 export async function generateMetadata(
   { params }: { params: { slug: string } },
@@ -38,8 +38,11 @@ export async function generateMetadata(
     },
   };
 }
-export const Layout = ({children}: {children: React.ReactNode}) => {
-  return (
-    <>{children}</>
-  )
+
+export default function BlogLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
 }
