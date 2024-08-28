@@ -15,14 +15,14 @@ const projects = [
     logo: "/typehere.webp",
   },
   {
-    name: "TiketApaSaja",
-    website: "https://tiketapasaja.com",
-    description: "Ticket Box Cooperation - Management Ticketing",
-  },
-  {
     name: "Bikinsoal",
     website: "https://github.com/fahreziadh/bikinsoal",
     description: "Open-source quiz generator tool for teacher.",
+  },
+  {
+    name: "TiketApaSaja",
+    website: "https://tiketapasaja.com",
+    description: "Ticket Box Cooperation - Management Ticketing",
   },
   {
     name: "Konten.io",
