@@ -31,7 +31,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </a>
           <a
             target="_blank"
-            href="https://github.com/fahreziadh"
+            href="https://github.com/fahreziadh/fahrezi.fyi"
             className="transition-all hover:opacity-70"
           >
             <GithubIcon />
