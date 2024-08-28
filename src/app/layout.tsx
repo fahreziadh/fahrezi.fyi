@@ -4,6 +4,7 @@ import "./globals.css";
 import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://fahrezi.fyi"),
   title: "Fahrezi Adha",
   description: "Frontend Engineer",
   openGraph: {
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
     description: "Frontend Engineer",
     title: "Fahrezi Adha",
     siteName: "Fahrezi Adha",
+    locale: 'en_US',
     images: [
       {
         url: "https://fahrezi.fyi/og_image.png",
@@ -25,6 +27,17 @@ export const metadata: Metadata = {
     description: "Frontend Engineer",
     images: "https://fahrezi.fyi/og_image.png",
     creator: "@fahreziadhaa",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

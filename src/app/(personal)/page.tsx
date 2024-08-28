@@ -46,7 +46,10 @@ const workExperience = [
   },
 ];
 
-export default function Home() {
+export const dynamic = "force-static";
+
+export default async function Home() {
+
   return (
     <main className="container max-w-[680px] leading-relaxed antialiased pb-20">
       <Link href="/" className="font-medium">
