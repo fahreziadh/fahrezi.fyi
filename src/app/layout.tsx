@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { GeistSans } from "geist/font/sans";
+import { Provider } from "./provider";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fahrezi.fyi"),
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     description: "Frontend Engineer",
     title: "Fahrezi Adha",
     siteName: "Fahrezi Adha",
-    locale: 'en_US',
+    locale: "en_US",
     images: [
       {
         url: "https://fahrezi.fyi/og_image.png",
@@ -51,7 +52,7 @@ export default function RootLayout({
       <body
         className={`dark bg-background text-foreground font-sans antialiased ${GeistSans.variable}`}
       >
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

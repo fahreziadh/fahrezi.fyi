@@ -1,56 +1,20 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { allPosts } from "content-collections";
 import { MDXContent } from "@content-collections/mdx/react";
 import { notFound } from "next/navigation";
 import { format, formatDistance } from "date-fns";
 import { id } from "date-fns/locale/id";
-import { ResolvingMetadata } from "next";
-import { db } from "@/lib/drizzle";
-import { postsViews } from "../../../../../migrations/schema";
-import { sql, eq } from "drizzle-orm";
+import { useQuery } from "@tanstack/react-query";
+import { getAndIncrementView } from "@/lib/actions";
 
-export const dynamic = "force-static"
+export const dynamic = "force-static";
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata
-) {
-  const post = allPosts.find((p) => p.slug === params.slug);
-  if (!post) return null;
+export const generateStaticParams = async () => {
+  const posts = allPosts.filter((p) => p.slug.includes("-en"));
+  return allPosts.map((p) => ({ slug: p.slug }));
+};
 
-  return {
-    ...parent,
-    title: post.title,
-    openGraph: {
-      type: "website",
-      url: `https://fahrezi.fyi/blog/${post.slug}`,
-      description: "",
-      title: post.title,
-      siteName: "Fahrezi Adha",
-      images: [
-        {
-          url: `https://fahrezi.fyi/blog/${post.slug}/og`,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      site: "@fahreziadhaa",
-      title: post.title,
-      description: "",
-      images: [
-        {
-          url: `https://fahrezi.fyi/blog/${post.slug}/og`,
-        },
-      ],
-      creator: "@fahreziadhaa",
-    },
-  };
-}
-
-export const revalidate = 0;
-
-const page = async ({ params }: { params: { slug: string } }) => {
+const Page = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((p) => p.slug === params.slug);
   const locale = post?.slug.includes("-en") ? "en" : "id";
 
@@ -68,15 +32,7 @@ const page = async ({ params }: { params: { slug: string } }) => {
           })}
           )
         </h3>
-        <h3 className="opacity-50 text-sm">
-          <Suspense
-            fallback={
-              <div className="w-[60px] h-[14px] bg-foreground/5 rounded-full animate-pulse" />
-            }
-          >
-            <Views slug={post.slug} />
-          </Suspense>
-        </h3>
+        <Views slug={post.slug} />
       </div>
       <div className="prose dark:prose-invert prose-zinc mt-6">
         <MDXContent code={post.mdx} />
@@ -85,27 +41,20 @@ const page = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-const Views = async ({ slug }: { slug: string }) => {
-  async function getViews(slug: string) {
-    return await db
-      .insert(postsViews)
-      .values({
-        id: slug.replace("-en", "").replace("-id", ""),
-        views: 1,
-      })
-      .onConflictDoUpdate({
-        target: postsViews.id,
-        set: {
-          views: sql`${postsViews.views}+1`,
-        },
-      })
-      .returning()
-      .then((v) => v[0].views);
-  }
+const Views = ({ slug }: { slug: string }) => {
+  return null
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["views", slug],
+  //   queryFn: async () => await getAndIncrementView(slug),
+  // });
 
-  const views = await getViews(slug);
+  // if (isLoading) {
+  //   return (
+  //     <div className="w-[60px] h-[14px] bg-foreground/5 rounded-full animate-pulse" />
+  //   );
+  // }
 
-  return <span>{views} views</span>;
+  // return <span className="opacity-50 text-sm">{data || 1} views</span>;
 };
 
-export default page;
+export default Page;
