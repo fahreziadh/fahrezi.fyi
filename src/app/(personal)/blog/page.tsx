@@ -5,10 +5,17 @@ import { allPosts } from "content-collections";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { getViews } from "@/lib/actions";
+import { Metadata } from "next";
 
 // New Idea: Speechify reader for every people's blog
 
 export const dynamic = "force-static";
+
+export const metadata: Metadata = {
+  title: "fahrezi's blog",
+  description: "fahrezi's blog",
+  keywords: "fahrezi, blog, writing, writings, blogging, writing blog, nextjs, react, typescript, tailwindcss, nextjs blog",
+}
 
 const Page = () => {
   return (
