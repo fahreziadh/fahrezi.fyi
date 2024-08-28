@@ -6,6 +6,7 @@ import { unstable_noStore } from "next/cache";
 
 // New Idea: Speechify reader for every people's blog
 
+export const dynamic = "force-static"
 
 const Page =  () => {
   return (

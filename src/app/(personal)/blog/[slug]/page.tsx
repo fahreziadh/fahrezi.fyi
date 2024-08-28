@@ -9,6 +9,8 @@ import { db } from "@/lib/drizzle";
 import { postsViews } from "../../../../../migrations/schema";
 import { sql, eq } from "drizzle-orm";
 
+export const dynamic = "force-static"
+
 export async function generateMetadata(
   { params }: { params: { slug: string } },
   parent: ResolvingMetadata
