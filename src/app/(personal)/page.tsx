@@ -20,6 +20,11 @@ const projects = [
     description: "Ticket Box Cooperation - Management Ticketing",
   },
   {
+    name: "Bikinsoal",
+    website: "https://github.com/fahreziadh/bikinsoal",
+    description: "Open-source quiz generator tool for teacher.",
+  },
+  {
     name: "Konten.io",
     website: "https://konten.io",
     description: "Digital content buying and selling platform",
