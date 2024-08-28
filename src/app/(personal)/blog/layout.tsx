@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "fahrezi's blog",
-  description: "fahrezi's blog",
+  title: "Fahrezi's blog",
+  description: "Fahrezi's blog",
   keywords:
     "fahrezi, blog, writing, writings, blogging, writing blog, nextjs, react, typescript, tailwindcss, nextjs blog",
 };
