@@ -28,7 +28,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </h3>
         <Views slug={post.slug} />
       </div>
-      <div className="prose dark:prose-invert prose-zinc mt-6">
+      <div className="prose dark:prose-invert xl:prose-lg prose-zinc mt-6">
         <MDXContent code={post.mdx} />
       </div>
     </div>

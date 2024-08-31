@@ -34,7 +34,7 @@ const projects = [
 const workExperience = [
   {
     company: "Nuon",
-    position: "Frontend Engineer",
+    position: "Software Engineer",
     startDate: "2023",
     endDate: "Present",
   },
@@ -45,7 +45,7 @@ const workExperience = [
   },
   {
     company: "Gameqoo",
-    position: "Android Engineer",
+    position: "Software Engineer",
     startDate: "2019",
     endDate: "2023",
   },

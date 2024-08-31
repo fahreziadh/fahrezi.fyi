@@ -12,14 +12,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <a href="/blog" className="hover:opacity-70">
             blog
           </a>
-
+          {/* <a href="/contact" className="hover:opacity-70">
+            contact
+          </a> */}
           {/* <a href="/uses" className="hover:opacity-70">
             uses
           </a>
 
-          <a href="/contact" className="hover:opacity-70">
-            contact
-          </a> */}
+         */}
         </div>
         <div className="flex flex-row items-center gap-4 md:gap-6">
           <a
