@@ -15,7 +15,6 @@ const Page = () => {
   return (
     <div className="container max-w-[680px] flex flex-col">
       {allPosts
-        .filter((p) => p._meta.directory === "en")
         .map((post) => (
           <Link
             key={post._meta.path}

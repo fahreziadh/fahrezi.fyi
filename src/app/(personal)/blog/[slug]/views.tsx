@@ -16,7 +16,7 @@ const Views = ({ slug }: { slug: string }) => {
     );
   }
 
-  return <span className="opacity-50 text-sm">{data || 1} views</span>;
+  return <span >{data || 1} views</span>;
 };
 
 export default Views

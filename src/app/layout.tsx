@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { Provider } from "./provider";
 
@@ -50,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`dark bg-background text-foreground font-sans antialiased ${GeistSans.variable}`}
+        className={`bg-background text-foreground font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <Provider>{children}</Provider>
       </body>

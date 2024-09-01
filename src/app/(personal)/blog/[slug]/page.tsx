@@ -10,31 +10,29 @@ export const dynamic = "force-static";
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((p) => p.slug === params.slug);
-  const locale = post?.slug.includes("-en") ? "en" : "id";
 
   if (!post) return notFound();
 
   return (
     <div className="container max-w-[680px]">
-      <h2 className="text-2xl tracking-tighter font-medium">{post.title}</h2>
-      <div className="flex flex-row items-center justify-between  mt-2">
-        <h3 className="opacity-50 text-sm">
+      <h2 className="text-2xl text-start tracking-tight font-bold font-mono">
+        {post.title}
+      </h2>
+      <div className="list-disc flex flex-row items-center justify-between mt-4 opacity-50 font-mono  text-sm">
+        <span>
           {format(post.createdAt, "MMMM dd,  yyyy")} (
           {formatDistance(post.createdAt, new Date(), {
             addSuffix: true,
-            locale: locale === "id" ? id : undefined,
           })}
           )
-        </h3>
+        </span>
         <Views slug={post.slug} />
       </div>
-      <div className="prose dark:prose-invert xl:prose-lg prose-zinc mt-6">
+      <div className="prose dark:prose-invert  prose-zinc mt-8">
         <MDXContent code={post.mdx} />
       </div>
     </div>
   );
 };
-
-
 
 export default Page;
