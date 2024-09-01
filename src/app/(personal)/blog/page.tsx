@@ -12,18 +12,20 @@ export const dynamic = "force-static";
 const Page = () => {
   return (
     <div className="container max-w-[680px] flex flex-col">
-      {allPosts.map((post) => (
-        <Link
-          key={post._meta.path}
-          href={`/blog/${post.slug}`}
-          className="flex flex-row items-start hover:opacity-70 gap-6"
-        >
-          <div className="grow flex flex-col py-3">
-            <p>{post.title}</p>
-            <Views slug={post.slug} />
-          </div>
-        </Link>
-      ))}
+      {allPosts.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map(
+        (post) => (
+          <Link
+            key={post._meta.path}
+            href={`/blog/${post.slug}`}
+            className="flex flex-row items-start hover:opacity-70 gap-6"
+          >
+            <div className="grow flex flex-col py-3">
+              <p>{post.title}</p>
+              <Views slug={post.slug} />
+            </div>
+          </Link>
+        )
+      )}
     </div>
   );
 };
