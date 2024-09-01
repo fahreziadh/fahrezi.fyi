@@ -4,9 +4,7 @@ import React, { Suspense } from "react";
 import { allPosts } from "content-collections";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { getViews } from "@/lib/actions";
-
-
+import Image from "next/image";
 // New Idea: Speechify reader for every people's blog
 
 export const dynamic = "force-static";
@@ -14,18 +12,18 @@ export const dynamic = "force-static";
 const Page = () => {
   return (
     <div className="container max-w-[680px] flex flex-col">
-      {allPosts
-        .map((post) => (
-          <Link
-            key={post._meta.path}
-            href={`/blog/${post.slug}`}
-            className="p-3 -mx-3 hover:opacity-70 w-full rounded-md flex flex-col"
-          >
+      {allPosts.map((post) => (
+        <Link
+          key={post._meta.path}
+          href={`/blog/${post.slug}`}
+          className="flex flex-row items-start hover:opacity-70 gap-6"
+        >
+          <div className="grow flex flex-col py-3">
             <p>{post.title}</p>
-
             <Views slug={post.slug} />
-          </Link>
-        ))}
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };
@@ -33,12 +31,12 @@ const Page = () => {
 function Views({ slug }: { slug: string }) {
   const { data, isLoading } = useQuery({
     queryKey: ["views"],
-    queryFn: async () => await getViews(),
+    queryFn: async () => await fetch(`/api/views`).then((r) => r.json()),
     refetchOnWindowFocus: false,
   });
 
   const views =
-    data?.find((v) => v.id === slug.replace("-en", "").replace("-id", ""))
+    data?.find((v: any) => v.id === slug.replace("-en", "").replace("-id", ""))
       ?.views || 1;
 
   if (isLoading) return <div className="w-[60px] h-[16px] my-1 " />;

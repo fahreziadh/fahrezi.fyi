@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { format, formatDistance } from "date-fns";
 import { id } from "date-fns/locale/id";
 import Views from "./views";
+import Image from "next/image";
 
 export const dynamic = "force-static";
 
@@ -18,7 +19,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
       <h2 className="text-2xl text-start tracking-tight font-bold font-mono">
         {post.title}
       </h2>
-      <div className="list-disc flex flex-row items-center justify-between mt-4 opacity-50 font-mono  text-sm">
+      <div className="list-disc flex flex-row items-center justify-between mt-2 opacity-50 font-mono  text-sm">
         <span>
           {format(post.createdAt, "MMMM dd,  yyyy")} (
           {formatDistance(post.createdAt, new Date(), {
@@ -28,6 +29,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </span>
         <Views slug={post.slug} />
       </div>
+
+      <Image src={post.thumbnail} alt={post.title} width={680} height={400} className="w-full aspect-video object-cover mt-4"/>
       <div className="prose dark:prose-invert  prose-zinc mt-8">
         <MDXContent code={post.mdx} />
       </div>

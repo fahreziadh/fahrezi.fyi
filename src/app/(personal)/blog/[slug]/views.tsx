@@ -1,12 +1,18 @@
-"use client"
-import { useQuery } from '@tanstack/react-query';
-import React from 'react'
-import { getAndIncrementView } from "@/lib/actions";
+"use client";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 
 const Views = ({ slug }: { slug: string }) => {
   const { data, isLoading } = useQuery({
     queryKey: ["views", slug],
-    queryFn: async () => await getAndIncrementView(slug),
+    queryFn: async () =>
+      await fetch(`/api/views`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ slug }),
+      }).then((r) => r.json()),
     refetchOnWindowFocus: false,
   });
 
@@ -16,7 +22,7 @@ const Views = ({ slug }: { slug: string }) => {
     );
   }
 
-  return <span >{data || 1} views</span>;
+  return <span>{data || 1} views</span>;
 };
 
-export default Views
+export default Views;
