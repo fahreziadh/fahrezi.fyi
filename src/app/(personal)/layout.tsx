@@ -5,7 +5,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
-      <main className="py-12 antialiased">{children}</main>
+      <main className="pt-12 pb-32 antialiased">{children}</main>
     </>
   );
 };

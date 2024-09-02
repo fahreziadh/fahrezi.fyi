@@ -4,6 +4,7 @@ import "./globals.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import { Provider } from "./provider";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fahrezi.fyi"),
@@ -53,6 +54,7 @@ export default function RootLayout({
       <body
         className={`bg-background text-foreground font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
       >
+        <Toaster position="top-center"/>
         <Provider>{children}</Provider>
       </body>
     </html>

@@ -6,6 +6,7 @@
 - **Database**: [Turso](https://turso.tech/)
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com)
+- **Email**: [Plunk](https://useplunk.com/) (For contact page notification)
 
 ## Running Locally
 
@@ -13,9 +14,8 @@ This application requires Node.js v18.17+.
 
 ```bash
 git clone https://github.com/fahreziadh/fahrezi.fyi.git
-cd leerob.io
+cd fahrezi.fyi
 bun install
-bun run setup # Remove all of my personal information
 bun dev
 ```
 
