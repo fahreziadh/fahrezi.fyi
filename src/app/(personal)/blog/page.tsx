@@ -9,13 +9,12 @@ import { format, formatDistance } from "date-fns";
 const Page = () => {
   const [isClientIndonesian, setIsClientIndonesian] = useState<boolean>();
 
-
   useEffect(() => {
     setIsClientIndonesian(localStorage.getItem("location") === "ID");
   }, []);
 
   const posts = allPosts
-    .filter((e) => e._meta.directory.includes(isClientIndonesian ? "id" : "en"))
+    .filter((e) => e._meta.directory === (isClientIndonesian ? "id" : "en"))
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
   return (
