@@ -1,12 +1,13 @@
 "use client";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const [isClient, setIsClient] = useState(false);
-
+  const pathName = usePathname();
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -30,6 +31,7 @@ export const Navbar = () => {
      */}
       </div>
       <div className="flex flex-row items-center gap-4 md:gap-6">
+        {pathName === "/blog" ? <ButtonChangeLanguage /> : null}
         {isClient ? (
           <button
             type="button"
@@ -43,5 +45,17 @@ export const Navbar = () => {
         ) : null}
       </div>
     </div>
+  );
+};
+
+const ButtonChangeLanguage = () => {
+  return (
+    <button type="button" className="flex flex-row items-center justify-center group px-3 py-1 bg-foreground/5 hover:bg-foreground/10 rounded-full">
+      <span className="opacity-50 mr-1 hidden group-hover:block">
+        click to change language:
+      </span>
+      <span className="opacity-50 mr-1 group-hover:hidden">lang:</span>
+      id
+    </button>
   );
 };

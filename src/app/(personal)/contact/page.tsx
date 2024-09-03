@@ -43,7 +43,7 @@ const Page = () => {
 
   return (
     <div className="container max-w-[680px]">
-      <p className="font-medium mt-10 mb-4">Social Media</p>
+      <p className="font-medium mb-4">Social Media</p>
       <div className="grid sm:grid-cols-2 gap-2">
         {socialMedia.map((item) => (
           <Link

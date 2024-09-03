@@ -8,8 +8,8 @@ import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://fahrezi.fyi"),
-  title: "Fahrezi Adha",
-  description: "Frontend Engineer",
+  title: "Fahrezi Adha - Software Engineer",
+  description: "Software Engineer",
   openGraph: {
     type: "website",
     url: "https://fahrezi.fyi",
@@ -52,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`bg-background text-foreground font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}
+        className={`bg-background font-sans text-foreground antialiased ${GeistSans.variable} ${GeistMono.variable}`}
       >
         <Toaster position="top-center"/>
         <Provider>{children}</Provider>

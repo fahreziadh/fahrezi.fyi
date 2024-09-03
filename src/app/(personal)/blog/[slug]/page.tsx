@@ -27,7 +27,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
           })}
           )
         </span>
-        <Views slug={post.slug} />
+        {/* <Views slug={post.slug} /> */}
       </div>
 
       <Image src={post.thumbnail} alt={post.title} width={680} height={400} className="w-full aspect-video object-cover mt-4"/>

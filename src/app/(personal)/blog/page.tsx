@@ -5,15 +5,19 @@ import { allPosts } from "content-collections";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { format, formatDistance } from "date-fns";
 // New Idea: Speechify reader for every people's blog
 
 export const dynamic = "force-static";
 
 const Page = () => {
+  const posts = allPosts
+    .filter((e) => e._meta.directory.includes("en"))
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+
   return (
     <div className="container max-w-[680px] flex flex-col">
-      {allPosts.sort((a, b) => b.createdAt.localeCompare(a.createdAt)).map(
-        (post) => (
+      {posts.map((post) => (
           <Link
             key={post._meta.path}
             href={`/blog/${post.slug}`}
@@ -21,11 +25,15 @@ const Page = () => {
           >
             <div className="grow flex flex-col py-3">
               <p>{post.title}</p>
-              <Views slug={post.slug} />
+              <span className="opacity-50">
+                {formatDistance(post.createdAt, new Date(), {
+                  addSuffix: true,
+                })}
+              </span>
+              {/* <Views slug={post.slug} /> */}
             </div>
           </Link>
-        )
-      )}
+        ))}
     </div>
   );
 };

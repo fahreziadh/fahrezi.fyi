@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Tweet } from "react-tweet";
 
 const projects = [
   {
@@ -13,22 +14,26 @@ const projects = [
     description: "A Simple Open Source Form Builder",
     website: "https://typehere.fun",
     logo: "/typehere.webp",
+    story: "/project/typehere",
   },
   {
     name: "Bikinsoal",
     website: "https://github.com/fahreziadh/bikinsoal",
     description: "Open-source quiz generator tool for teacher.",
+    story: "/project/bikinsoal",
   },
   {
     name: "TiketApaSaja",
     website: "https://tiketapasaja.com",
     description: "Ticket Box Cooperation - Management Ticketing",
+    story: "/project/tiketapasaja",
   },
   {
     name: "Konten.io",
     website: "https://konten.io",
     description: "Digital content buying and selling platform",
-  }
+    story: "/project/konten-io",
+  },
 ];
 
 const workExperience = [
@@ -54,7 +59,6 @@ const workExperience = [
 export const dynamic = "force-static";
 
 export default async function Home() {
-
   return (
     <main className="container max-w-[680px] leading-relaxed antialiased pb-20">
       <Link href="/" className="font-medium">
@@ -78,9 +82,8 @@ export default async function Home() {
       <div className="mt-4 flex flex-col">
         {projects.map((project) => (
           <Link
-            href={project.website}
+            href={project.story}
             key={project.name}
-            target="_blank"
             className="-mx-4 p-4 hover:bg-foreground/5 rounded-md"
           >
             <h1>{project.name}</h1>
