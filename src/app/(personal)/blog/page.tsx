@@ -1,17 +1,13 @@
 "use client";
 
-import React, { Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { allPosts } from "content-collections";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 import { format, formatDistance } from "date-fns";
-// New Idea: Speechify reader for every people's blog
-
-export const dynamic = "force-static";
 
 const Page = () => {
-  const [isClientIndonesian, setIsClientIndonesian] = useState(false);
+  const [isClientIndonesian, setIsClientIndonesian] = useState<boolean>();
 
 
   useEffect(() => {
