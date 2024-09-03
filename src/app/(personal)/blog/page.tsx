@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { allPosts } from "content-collections";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
@@ -11,8 +11,15 @@ import { format, formatDistance } from "date-fns";
 export const dynamic = "force-static";
 
 const Page = () => {
+  const [isClientIndonesian, setIsClientIndonesian] = useState(false);
+
+
+  useEffect(() => {
+    setIsClientIndonesian(localStorage.getItem("location") === "ID");
+  }, []);
+
   const posts = allPosts
-    .filter((e) => e._meta.directory.includes("en"))
+    .filter((e) => e._meta.directory.includes(isClientIndonesian ? "id" : "en"))
     .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 
   return (
