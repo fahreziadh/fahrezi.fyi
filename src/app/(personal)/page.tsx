@@ -98,7 +98,7 @@ export default async function Home() {
       <Link href="/" className="font-medium">
         Fahrezi Adha
       </Link>
-      <p className="opacity-70 font-medium">Frontend Engineer</p>
+      <p className="opacity-70 font-medium">Software Engineer</p>
       <p className="mt-6 opacity-70">
         {"I'm"} a software engineer that passionate about creating something people love. Currently at{" "}
         <Link href="https://nuon.id/" className="underline" target="_blank">
