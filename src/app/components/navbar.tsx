@@ -15,17 +15,15 @@ export const Navbar = () => {
         <a href="/" className="hover:opacity-70">
           home
         </a>
+        <a href="/work" className="hover:opacity-70">
+          work
+        </a>
         <a href="/blog" className="hover:opacity-70">
           blog
         </a>
         <a href="/contact" className="hover:opacity-70">
           contact
         </a>
-        {/* <a href="/uses" className="hover:opacity-70">
-        uses
-      </a>
-
-     */}
       </div>
       <div className="flex flex-row items-center gap-4 md:gap-6">
         {isClient ? (

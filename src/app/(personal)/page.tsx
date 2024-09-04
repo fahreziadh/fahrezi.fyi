@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Tweet } from "react-tweet";
 
 const projects = [
   {
@@ -75,18 +74,21 @@ const workExperience = [
     position: "Software Engineer",
     startDate: "Sep 2022",
     endDate: "Present",
+    url: "#nuon",
   },
   {
     company: "Creative Station",
     position: "Frontend Engineer Consultant",
     startDate: "Nov 2022",
     endDate: "Sep 2023",
+    url: "#creative-station",
   },
   {
     company: "Gameqoo",
     position: "Software Engineer",
     startDate: "Aug 2018",
     endDate: "Jul 2022",
+    url: "#gameqoo",
   },
 ];
 
@@ -114,7 +116,7 @@ export default async function Home() {
       <p className="font-medium mt-20">Work Experience</p>
       <div className="mt-4 flex flex-col divide-foreground/10">
         {workExperience.map((experience) => (
-          <div key={experience.company} className="py-4 hover:bg-foreground/5 -mx-4 px-4 rounded-md">
+          <Link href={`/work${experience.url}`} key={experience.company} className="py-4 hover:bg-foreground/5 -mx-4 px-4 rounded-md">
             <h1 className="flex flex-row justify-between">
               <span>{experience.company}</span>
               <span className="opacity-50 text-sm">
@@ -123,7 +125,7 @@ export default async function Home() {
               </span>
             </h1>
             <h2 className="opacity-70">{experience.position}</h2>
-          </div>
+          </Link>
         ))}
       </div>
 
