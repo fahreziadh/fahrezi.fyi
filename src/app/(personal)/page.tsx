@@ -17,7 +17,7 @@ const projects = [
       "Docker",
       "Redis",
     ],
-    thumbnail: "/img/evaly.png",
+    thumbnail: "/img/evaly-2.png",
     year: "2024",
   },
   {
@@ -101,22 +101,43 @@ export default async function Home() {
         Fahrezi Adha
       </Link>
       <p className="opacity-70 font-medium">Software Engineer</p>
-      <p className="mt-6 opacity-70">
-        {"I'm"} a software engineer that passionate about creating something people love. Currently at{" "}
-        <Link href="https://nuon.id/" className="underline" target="_blank">
+      <p className="mt-6 text-foreground/70">
+        I'm a software engineer that's passionate about creating something
+        people love. Currently at{" "}
+        <Link href="https://nuon.id/" className="hover:text-[#1da1f2]" target="_blank">
           Nuon
         </Link>
         , building{" "}
-        <Link target="_blank" className="underline" href="https://evaly.io">
+        <Link target="_blank" className="hover:text-[#1da1f2]" href="https://evaly.io">
           evaly.io
         </Link>{" "}
-        and share every journey here.
+        and share every journey here. I also share about tech stuff on{" "}
+        <Link
+          href="https://twitter.com/fahreziadhaa"
+          className="hover:text-[#1da1f2]"
+          target="_blank"
+        >
+          Twitter
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://www.youtube.com/@fahreziadha"
+          className="hover:text-[#1da1f2]"
+          target="_blank"
+        >
+          Youtube
+        </Link>
+        .
       </p>
 
       <p className="font-medium mt-20">Work Experience</p>
       <div className="mt-4 flex flex-col divide-foreground/10">
         {workExperience.map((experience) => (
-          <Link href={`/work${experience.url}`} key={experience.company} className="py-4 hover:bg-foreground/5 -mx-4 px-4 rounded-md">
+          <Link
+            href={`/work${experience.url}`}
+            key={experience.company}
+            className="py-4 hover:bg-foreground/5 -mx-4 px-4 rounded-md"
+          >
             <h1 className="flex flex-row justify-between">
               <span>{experience.company}</span>
               <span className="opacity-50 text-sm">
@@ -159,7 +180,6 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-
     </main>
   );
 }

@@ -3,34 +3,39 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { toast } from "sonner";
 import { sendNotificationEmail } from "./action";
+import { Github, Linkedin, Mail, Twitter, Youtube } from "lucide-react";
 
 const socialMedia = [
   {
     name: "Twitter/X",
     username: "@fahreziadhaa",
     url: "https://twitter.com/fahreziadhaa",
+    icon: Twitter,
   },
   {
     name: "Github",
     username: "@fahreziadh",
     url: "https://github.com/fahreziadh",
+    icon: Github,
   },
   {
     name: "Linkedin",
     username: "@fahrezi",
     url: "https://www.linkedin.com/in/fahrezi/",
+    icon: Linkedin,
+  },
+  {
+    name: "Youtube",
+    username: "@fahreziadh",
+    url: "https://www.youtube.com/@fahreziadha",
+    icon: Youtube,
   },
   {
     name: "Email",
     username: "fahreziadh@gmail.com",
     url: "mailto:fahreziadh@gmail.com",
     hoverMessage: "Click to copy",
-  },
-];
-
-const links = [
-  {
-    name: "",
+    icon: Mail,
   },
 ];
 
@@ -44,7 +49,7 @@ const Page = () => {
   return (
     <div className="container max-w-[680px]">
       <p className="font-medium mb-4">Social Media</p>
-      <div className="grid sm:grid-cols-2 gap-2">
+      <div className="grid sm:grid-cols-2 gap-4">
         {socialMedia.map((item) => (
           <Link
             href={item.hoverMessage ? "#" : item.url}
@@ -55,18 +60,24 @@ const Page = () => {
                 navigator.clipboard.writeText(item.username);
               }
             }}
-            className="p-4 hover:opacity-70 group border border-foreground/5 rounded-md"
+            className="p-4 hover:opacity-70 group border border-foreground/10 rounded-lg flex flex-row"
           >
-            <div className="text-sm opacity-70">{item.username}</div>
-            <div>
-              {item.name}{" "}
-              {item.hoverMessage ? (
-                <span className="group-hover:opacity-100 opacity-0">
-                  ({item.hoverMessage})
-                </span>
-              ) : (
-                ""
-              )}
+            <div className="grow">
+              <div className="text-sm opacity-70">{item.username}</div>
+              <div>
+                {item.name}{" "}
+                {item.hoverMessage ? (
+                  <span className="group-hover:opacity-100 opacity-0">
+                    ({item.hoverMessage})
+                  </span>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+
+            <div className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center">
+              <item.icon className="stroke-foreground" size={20}/>
             </div>
           </Link>
         ))}

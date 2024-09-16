@@ -15,7 +15,7 @@ const Page = () => {
   return (
     <div className="container max-w-[680px] prose prose-zinc dark:prose-invert">
       <p>
-      Currently active as a Software Engineer for 4 years. Working on projects related to Web development, such as Frontend & Backend Development, Infrastructure, etc. My daily usage stack is: Javascript/Typescript, Next.js, React.js, Tailwind, Postgres, Node.js, GraphQl, AWS, Docker & Redis.
+      Currently active as a Software Engineer for 4 years. Working on projects related to Web development, such as Frontend & Backend Development & Infrastructure.
       </p>
       <hr className="my-6 border-foreground/5" />
       <h2 id="nuon" className="font-medium text-xl mb-1 tracking-tighter">Nuon</h2>

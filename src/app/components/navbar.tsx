@@ -1,4 +1,5 @@
 "use client";
+import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 
@@ -34,7 +35,7 @@ export const Navbar = () => {
             }}
             className="transition-all hover:opacity-70"
           >
-            {theme === "dark" ? "⛅" : "🌖"}
+            {theme === "dark" ? <SunIcon size={16}/> : <MoonIcon size={16}/>}
           </button>
         ) : null}
       </div>
