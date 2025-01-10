@@ -23,6 +23,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-tweet": "^3.2.1",
+    "sharp": "^0.33.5",
     "sonner": "^1.5.0"
   },
   "devDependencies": {

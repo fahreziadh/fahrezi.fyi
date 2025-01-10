@@ -1,7 +1,7 @@
 "use client";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -15,9 +15,6 @@ export const Navbar = () => {
       <div className="flex flex-row items-center tracking-tight gap-4 md:gap-6">
         <a href="/" className="hover:opacity-70">
           home
-        </a>
-        <a href="/work" className="hover:opacity-70">
-          work
         </a>
         <a href="/blog" className="hover:opacity-70">
           blog

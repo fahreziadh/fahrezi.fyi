@@ -70,25 +70,32 @@ const projects = [
 
 const workExperience = [
   {
+    company: "Dolami, Inc",
+    position: "Software Engineer",
+    startDate: "Oct 2024",
+    endDate: "Present",
+    url: "https://dolami.co/",
+  },
+  {
     company: "Nuon",
     position: "Software Engineer",
     startDate: "Sep 2022",
-    endDate: "Present",
-    url: "#nuon",
+    endDate: "Oct 2024",
+    url: "https://nuon.id/en",
   },
   {
     company: "Creative Station",
     position: "Frontend Engineer Consultant",
     startDate: "Nov 2022",
     endDate: "Sep 2023",
-    url: "#creative-station",
+    url: "https://www.instagram.com/creativestation.co.id/?hl=en",
   },
   {
     company: "Gameqoo",
     position: "Software Engineer",
     startDate: "Aug 2018",
     endDate: "Jul 2022",
-    url: "#gameqoo",
+    url: "https://gameqoo.id/",
   },
 ];
 
@@ -134,8 +141,9 @@ export default async function Home() {
       <div className="mt-4 flex flex-col divide-foreground/10">
         {workExperience.map((experience) => (
           <Link
-            href={`/work${experience.url}`}
+            href={`${experience.url}`}
             key={experience.company}
+            target="_blank"
             className="py-4 hover:bg-foreground/5 -mx-4 px-4 rounded-md"
           >
             <h1 className="flex flex-row justify-between">
