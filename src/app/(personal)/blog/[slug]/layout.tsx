@@ -1,16 +1,17 @@
 import { allPosts } from "content-collections";
-import { ResolvingMetadata } from "next";
+import { Metadata } from "next";
 import React from "react";
 
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata
-) {
-  const post = allPosts.find((p) => p.slug === params.slug);
-  if (!post) return null;
+type Params = { slug: string };
 
+export async function generateMetadata(props: {
+  params: Params;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const post = allPosts.find((p) => p.slug === params.slug);
+  if (!post) return {};
+  
   return {
-    ...parent,
     title: post.title,
     openGraph: {
       type: "website",
