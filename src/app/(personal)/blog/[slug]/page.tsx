@@ -7,7 +7,8 @@ import Views from "./views";
 
 export const dynamic = "force-static";
 
-const Page = ({ params }: { params: { slug: string } }) => {
+const Page = async (props: { params: { slug: string } }) => {
+  const params = await props.params;
   const post = allPosts.find((p) => p.slug === params.slug);
 
   if (!post) return notFound();
