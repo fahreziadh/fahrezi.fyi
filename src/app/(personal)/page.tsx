@@ -110,22 +110,22 @@ export default async function Home() {
       <p className="opacity-70 font-medium">Software Engineer</p>
       <p className="mt-6 text-foreground/70">
         {
-          "I'm a software engineer that's passionate about creating something people love. Currently at"
+          "I'm a software engineer that's passionate about creating something people love. Currently at "
         }
         <Link
-          href="https://nuon.id/"
+          href="https://dolami.co/"
           className="hover:text-[#1da1f2]"
           target="_blank"
         >
-          Nuon
+          Dolami, Inc.
         </Link>
-        , building{" "}
+         {" building "}
         <Link
           target="_blank"
           className="hover:text-[#1da1f2]"
           href="https://evaly.io"
         >
-          evaly.io
+          Evaly
         </Link>{" "}
         and share every journey here. I also share about tech stuff on{" "}
         <Link
@@ -133,7 +133,7 @@ export default async function Home() {
           className="hover:text-[#1da1f2]"
           target="_blank"
         >
-          Twitter
+          My Twitter
         </Link>{" "}
         and{" "}
         <Link
@@ -146,14 +146,14 @@ export default async function Home() {
         .
       </p>
 
-      <p className="font-medium mt-20">Work Experience</p>
+      <p className="font-semibold mt-16">Work Experience</p>
       <div className="mt-4 flex flex-col divide-foreground/10">
         {workExperience.map((experience) => (
           <Link
             href={`${experience.url}`}
             key={experience.company}
             target="_blank"
-            className="py-4 hover:bg-foreground/5 -mx-4 px-4 rounded-md"
+            className="py-2 hover:bg-foreground/5 -mx-3 px-3 rounded-md"
           >
             <h1 className="flex flex-row justify-between">
               <span>{experience.company}</span>
@@ -162,13 +162,13 @@ export default async function Home() {
                 {experience.endDate && `- ${experience.endDate}`}
               </span>
             </h1>
-            <h2 className="opacity-70">{experience.position}</h2>
+            <h2 className="opacity-70 text-sm">{experience.position}</h2>
           </Link>
         ))}
       </div>
 
-      <p className="font-medium mt-20">Projects</p>
-      <div className="mt-10 grid md:grid-cols-2 gap-8">
+      <p className="font-semibold mt-16">Projects</p>
+      <div className="mt-4 grid md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <Link
             href={project.website}
