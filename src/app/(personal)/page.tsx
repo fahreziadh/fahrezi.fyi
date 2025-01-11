@@ -109,13 +109,22 @@ export default async function Home() {
       </Link>
       <p className="opacity-70 font-medium">Software Engineer</p>
       <p className="mt-6 text-foreground/70">
-        I'm a software engineer that's passionate about creating something
-        people love. Currently at{" "}
-        <Link href="https://nuon.id/" className="hover:text-[#1da1f2]" target="_blank">
+        {
+          "I'm a software engineer that's passionate about creating something people love. Currently at"
+        }
+        <Link
+          href="https://nuon.id/"
+          className="hover:text-[#1da1f2]"
+          target="_blank"
+        >
           Nuon
         </Link>
         , building{" "}
-        <Link target="_blank" className="hover:text-[#1da1f2]" href="https://evaly.io">
+        <Link
+          target="_blank"
+          className="hover:text-[#1da1f2]"
+          href="https://evaly.io"
+        >
           evaly.io
         </Link>{" "}
         and share every journey here. I also share about tech stuff on{" "}

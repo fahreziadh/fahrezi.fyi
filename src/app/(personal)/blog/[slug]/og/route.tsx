@@ -12,8 +12,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function GET(req:Request, {params}:{params:{slug:string}}) {
-  const slug = params.slug
+export async function GET(
+  req: Request,
+  { params }: { params: Promise<{ slug: string }> }
+) {
+  const slug = (await params).slug;
   const getTitle = allPosts.find((p) => p.slug === slug)?.title;
 
   if (!slug || !getTitle) return new Response("Not found", { status: 404 });
@@ -29,17 +32,17 @@ export async function GET(req:Request, {params}:{params:{slug:string}}) {
           height: "100%",
           padding: "80px",
           textAlign: "start",
-          fontFamily:"'Geist'",
+          fontFamily: "'Geist'",
           justifyContent: "flex-start",
           alignItems: "flex-end",
         }}
       >
-          {getTitle}
+        {getTitle}
       </div>
     ),
     {
-      headers:{
-        "Content-Type": "image/png"
+      headers: {
+        "Content-Type": "image/png",
       },
       width: 1200,
       height: 675,
