@@ -9,7 +9,7 @@ import { Toaster } from "sonner";
 export const metadata: Metadata = {
   metadataBase: new URL("https://fahrezi.fyi"),
   title: "Fahrezi Adha - Software Engineer",
-  description: "Software Engineer",
+  description: "I'm a software engineer that's passionate about creating something people love",
   openGraph: {
     type: "website",
     url: "https://fahrezi.fyi",
