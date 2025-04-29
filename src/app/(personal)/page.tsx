@@ -119,7 +119,7 @@ export default async function Home() {
         >
           Dolami, Inc.
         </Link>
-         {" building "}
+        {" building "}
         <Link
           target="_blank"
           className="hover:text-[#1da1f2]"
@@ -146,6 +146,37 @@ export default async function Home() {
         .
       </p>
 
+      <p className="font-semibold mt-16">Projects</p>
+      <div className="mt-4 grid md:grid-cols-2 gap-8">
+        {projects.map((project) => (
+          <Link
+            href={project.website}
+            key={project.name}
+            className="relative hover:bg-foreground/5 hover:border-foreground/10 border border-foreground/0 -m-2 p-2 transition-colors duration-100"
+          >
+            <Image
+              src={project.thumbnail}
+              alt={project.name}
+              width={400}
+              height={300}
+              className="aspect-[16/9] object-cover  border border-foreground/5 shadow-sm w-full min-h-[200px] min-w-full"
+            />
+            <div className="mt-4 flex flex-row items-start justify-between w-full">
+              <p>{project.name}</p>
+              <p className="text-xs opacity-50">{project.year}</p>
+            </div>
+            <h2 className="opacity-70">{project.description}</h2>
+            <h2 className="opacity-70 flex flex-row flex-wrap gap-1.5 text-xs mt-2 font-medium">
+              {project.stack?.map((e) => (
+                <span key={e} className="px-2 py-1 bg-foreground/5">
+                  {e}
+                </span>
+              ))}
+            </h2>
+          </Link>
+        ))}
+      </div>
+
       <p className="font-semibold mt-16">Work Experience</p>
       <div className="mt-4 flex flex-col divide-foreground/10">
         {workExperience.map((experience) => (
@@ -153,7 +184,7 @@ export default async function Home() {
             href={`${experience.url}`}
             key={experience.company}
             target="_blank"
-            className="py-2 hover:bg-foreground/5 -mx-3 px-3 rounded-md"
+            className="py-2 hover:bg-foreground/5 -mx-2 px-2"
           >
             <h1 className="flex flex-row justify-between">
               <span>{experience.company}</span>
@@ -163,37 +194,6 @@ export default async function Home() {
               </span>
             </h1>
             <h2 className="opacity-70 text-sm">{experience.position}</h2>
-          </Link>
-        ))}
-      </div>
-
-      <p className="font-semibold mt-16">Projects</p>
-      <div className="mt-4 grid md:grid-cols-2 gap-8">
-        {projects.map((project) => (
-          <Link
-            href={project.website}
-            key={project.name}
-            className="relative hover:bg-foreground/5 hover:border-foreground/10 border border-foreground/0 rounded-lg -m-3 p-3 transition-colors duration-100"
-          >
-            <Image
-              src={project.thumbnail}
-              alt={project.name}
-              width={400}
-              height={300}
-              className="aspect-[16/9] object-cover rounded-lg border border-foreground/5 shadow-sm w-full min-h-[200px] min-w-full"
-            />
-            <div className="mt-4 flex flex-row items-start justify-between w-full">
-              <p>{project.name}</p>
-              <p className="text-xs opacity-50">{project.year}</p>
-            </div>
-            <h2 className="opacity-70">{project.description}</h2>
-            <h2 className="opacity-70 flex flex-row flex-wrap gap-1.5 text-xs mt-2 font-medium">
-              {project.stack?.map((e) => (
-                <span key={e} className="px-2 py-1 rounded-lg bg-foreground/5">
-                  {e}
-                </span>
-              ))}
-            </h2>
           </Link>
         ))}
       </div>
