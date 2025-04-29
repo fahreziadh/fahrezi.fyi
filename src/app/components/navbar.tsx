@@ -1,6 +1,7 @@
 "use client";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -15,7 +16,13 @@ export const Navbar = () => {
     <div className="container max-w-[680px] mt-6 lg:mt-10 flex flex-row items-center gap-4 justify-between">
       <div className="flex flex-row items-center tracking-tight gap-4 md:gap-6">
         <Link href="/" className="hover:opacity-70">
-          home
+          <Image
+            src="/fahrezi.png"
+            alt="logo"
+            width={32}
+            height={32}
+            className="rounded-full"
+          />
         </Link>
         <Link href="/blog" className="hover:opacity-70">
           blog

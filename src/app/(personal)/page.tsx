@@ -17,7 +17,7 @@ const projects = [
       "Docker",
       "Redis",
     ],
-    thumbnail: "/img/evaly-new.png",
+    thumbnail: "/img/evaly.webp",
     year: "2024",
   },
   {
