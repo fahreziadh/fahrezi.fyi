@@ -18,14 +18,14 @@ const Page = () => {
         <Link
           key={post._meta.path}
           href={`/blog/${post.slug}`}
-          className="flex flex-row items-start border border-foreground/0 hover:bg-foreground/5 hover:border-foreground/10 -m-2 p-2"
+          className="flex flex-row items-start border border-foreground/0 hover:bg-foreground/5 hover:border-foreground/10 -m-1 p-1 rounded-md"
         >
           <Image
             src={post.thumbnail}
             alt={post.title}
             width={60}
             height={60}
-            className="aspect-square object-cover border border-foreground/5 shadow-sm"
+            className="aspect-square object-cover border border-foreground/5 shadow-sm rounded-md"
           />
           <div className="flex flex-col pl-4">
             <p className="font-medium">{post.title}</p>

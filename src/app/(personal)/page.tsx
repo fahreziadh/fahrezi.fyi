@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -6,17 +8,10 @@ const projects = [
     name: "Evaly",
     description: "All-in-One Assessment Platform",
     website: "https://evaly.io",
+    github: "https://github.com/fahreziadh/evaly",
     logo: "/evaly.webp",
     story: "/project/evaly",
-    stack: [
-      "Next.js",
-      "Tailwindcss",
-      "ElysiaJs",
-      "PostgreSQL",
-      "AWS",
-      "Docker",
-      "Redis",
-    ],
+    stack: ["Open-source", "Next.js", "Tailwindcss", "Supabase (PostgreSQL)", "Redis"],
     thumbnail: "/img/evaly.webp",
     year: "2024",
   },
@@ -24,9 +19,10 @@ const projects = [
     name: "Typehere",
     description: "A Simple Open Source Form Builder",
     website: "https://typehere.fun",
+    github: "https://github.com/fahreziadh/typehere",
     logo: "/typehere.webp",
     story: "/project/typehere",
-    stack: ["Sveltekit", "Tailwindcss", "LibSQL(SQLite)", "Cloudflare"],
+    stack: ["Open-source", "Sveltekit", "Tailwindcss", "LibSQL(SQLite)", "Cloudflare"],
     thumbnail: "/img/typehere.webp",
     year: "2024",
   },
@@ -36,7 +32,7 @@ const projects = [
     description: "Open-source quiz generator tool for teacher.",
     story: "/project/bikinsoal",
     thumbnail: "/img/bikinsoal.webp",
-    stack: ["Next.js", "tRPC", "PlanetScale(MySQL)", "Tailwindcss", "Vercel"],
+    stack: ["Open-source", "Next.js", "tRPC", "PlanetScale(MySQL)", "Tailwindcss", "Vercel"],
     year: "2023",
   },
   {
@@ -101,7 +97,7 @@ const workExperience = [
 
 export const dynamic = "force-static";
 
-export default async function Home() {
+export default function Home() {
   return (
     <main className="container max-w-[680px] leading-relaxed antialiased pb-20">
       <Link href="/" className="font-medium">
@@ -146,33 +142,40 @@ export default async function Home() {
         .
       </p>
 
-      <p className="font-semibold mt-16">Projects</p>
-      <div className="mt-4 grid md:grid-cols-2 gap-8">
+      <p className="font-semibold mt-16">My Projects</p>
+      <div className="mt-4 flex flex-col gap-8">
         {projects.map((project) => (
           <Link
             href={project.website}
             key={project.name}
-            className="relative hover:bg-foreground/5 hover:border-foreground/10 border border-foreground/0 -m-2 p-2 transition-colors duration-100"
+            className="relative flex flex-col sm:flex-row gap-6 hover:bg-foreground/5 hover:border-foreground/10 border border-foreground/0 -m-2 p-2 transition-colors duration-100 rounded-md group"
           >
             <Image
               src={project.thumbnail}
               alt={project.name}
-              width={400}
-              height={300}
-              className="aspect-[16/9] object-cover  border border-foreground/5 shadow-sm w-full min-h-[200px] min-w-full"
+              width={600}
+              height={600}
+              className="rounded-[4px] aspect-[4/3] w-full sm:w-28 object-cover object-top border border-foreground/10 h-max"
             />
-            <div className="mt-4 flex flex-row items-start justify-between w-full">
-              <p>{project.name}</p>
-              <p className="text-xs opacity-50">{project.year}</p>
+            <div className="grow">
+              <div className="flex flex-row items-start justify-between w-full">
+                <p>{project.name}</p>
+                <div className="flex flex-row items-center gap-2">
+                  <p className="text-xs opacity-50">{project.year}</p>
+                </div>
+              </div>
+              <h2 className="opacity-70">{project.description}</h2>
+              <h2 className="opacity-70 flex flex-row flex-wrap gap-1.5 text-xs mt-2 font-medium">
+                {project.stack?.map((e) => (
+                  <span
+                    key={e}
+                    className="px-1.5 py-0.5 bg-foreground/5 text-foreground/60"
+                  >
+                    {e}
+                  </span>
+                ))}
+              </h2>
             </div>
-            <h2 className="opacity-70">{project.description}</h2>
-            <h2 className="opacity-70 flex flex-row flex-wrap gap-1.5 text-xs mt-2 font-medium">
-              {project.stack?.map((e) => (
-                <span key={e} className="px-2 py-1 bg-foreground/5">
-                  {e}
-                </span>
-              ))}
-            </h2>
           </Link>
         ))}
       </div>

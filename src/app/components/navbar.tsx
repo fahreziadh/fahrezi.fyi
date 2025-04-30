@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 export const Navbar = () => {
   const { theme, setTheme } = useTheme();
@@ -13,7 +14,12 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <div className="container max-w-[680px] mt-6 lg:mt-10 flex flex-row items-center gap-4 justify-between">
+    <motion.div
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+      className="container max-w-[680px] mt-6 lg:mt-10 flex flex-row items-center gap-4 justify-between"
+    >
       <div className="flex flex-row items-center tracking-tight gap-4 md:gap-6">
         <Link href="/" className="hover:opacity-70">
           <Image
@@ -23,6 +29,9 @@ export const Navbar = () => {
             height={32}
             className="rounded-full"
           />
+        </Link>
+        <Link href="/" className="hover:opacity-70">
+          home
         </Link>
         <Link href="/blog" className="hover:opacity-70">
           blog
@@ -44,6 +53,6 @@ export const Navbar = () => {
           </button>
         ) : null}
       </div>
-    </div>
+    </motion.div>
   );
 };
